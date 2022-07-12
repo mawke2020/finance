@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+    <h4>A share Of {{data.name}} <span style = "color: #78b1eb ;">({{data.symbol}})</span> costs <span style =" color: red;">${{data.price| usd }}</span> </h4>
+     
+{% endblock %}

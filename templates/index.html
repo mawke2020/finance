@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for item in data %}
+           <tr>
+              <td>{{item.symbol}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.shares}}</td>
+              <td>{{"£{:,.2f}".format(item.price)}}</td>
+              <td>{{"£{:,.2f}".format(item.shares * item.price)}}</td>
+            </tr>
+      {% endfor %}
+
+    <tr>
+      <td style="font-weight: bold;">CASH</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style ="color: red;font-weight: bold">{{"£{:,.2f}".format(balance)}}</td>
+
+    </tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="table-dark"style ="font-weight: bold">{{"£{:,.2f}".format(balance)}}</td>
+    </tr>
+
+  </tbody>
+</table>
+{% endblock %}
